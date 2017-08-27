@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>star</title>
+	<style>
+		#iDiv{
+			width: 500px;
+			margin: 0 auto;
+			/*background: red;*/
+			text-align: center;
+		}
+		ul{
+			margin: 0;padding: 0
+		}
+		li{
+			width: 50px;
+			height: 50px;
+			list-style: none;
+			display: inline-block;
+			background-image: url('image/staroff.png');
+		}
+		.active{
+			background-image: url('image/star.png');
+		}
+	</style>
+	<script type="text/javascript">
+	var aData=['很差','较差','一般','推荐','力荐'];
+		window.onload=function(){ 
+			var oDiv=document.getElementById('iDiv');
+			var aLi=iDiv.getElementsByTagName('li');
+			var oP=iDiv.getElementsByTagName('p')[0];
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].index=i;
+			
+				aLi[i].onmouseover=function(){
+						oP.style.display='block';
+						oP.innerHTML=aData[this.index];
+						for (var i=0;i<=this.index;i++){
+							aLi[i].className='active';
+						}
+					}
+				aLi[i].onmouseout=function(){
+						oP.style.display='none';
+						for (var i=0;i<=this.index;i++){
+							aLi[i].className='';
+						}
+					};
+				aLi[i].onclick=function(){
+						alert('评分成功， '+(this.index+1)+'分');
+					};
+				}
+			};
+	
+	</script>
+</head>
+<body>
+	<div id="iDiv">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<p>一般</p>
+	</div>
+</body>
+</html>
